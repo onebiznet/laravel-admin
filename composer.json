@@ -11,5 +11,18 @@
             "email": "drpyaesonehtoo@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^8.6|^9.0|^10.0",
+        "illuminate/view": "^8.6|^9.0|^10.0",
+        "spatie/laravel-medialibrary": "^8.0",
+        "butschster/meta-tags": "^2.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OneBiznet\\Admin\\AdminServiceProvider"
+            ]
+        }
+    }
 }
