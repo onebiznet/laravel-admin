@@ -1,5 +1,5 @@
 {
-    "name": "onebiznet/admin",
+    "name": "onebiznet/laravel-admin",
     "autoload": {    
         "psr-4": {
             "OneBiznet\\Admin\\": "src/"
