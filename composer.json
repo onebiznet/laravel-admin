@@ -1,0 +1,15 @@
+{
+    "name": "onebiznet/admin",
+    "autoload": {    
+        "psr-4": {
+            "OneBiznet\\Admin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "drhtoo",
+            "email": "drpyaesonehtoo@gmail.com"
+        }
+    ],
+    "require": {}
+}
