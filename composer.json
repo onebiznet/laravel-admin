@@ -24,5 +24,6 @@
                 "OneBiznet\\Admin\\AdminServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
