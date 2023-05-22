@@ -1,24 +1,19 @@
-@php
-    $sub_items = method_exists($item, 'getItems') ? $item->getItems() : null;
-    $url = method_exists($item, 'getUrl') ? $item->getUrl() : '#';
-@endphp
-<li class="nav-item @if (!empty($sub_items) && !$item->isCollapsed()) menu-open @endif">
-    @if ($label = $item->getLabel()) 
-        <a href="{{ $url }}" class="nav-link @if ($item->isActive()) active @endif">
-            @if ($icon = $item->getIcon())
-                <i class="nav-icon {{ $icon }}"></i>
-                <p>{{ $item->getLabel() }} 
-                    @if(!empty($sub_items))
-                        <i class="fas fa-angle-left right"></i>
-                    @endif
-                </p>
-            @endif
-        </a>
-    @endif
-    @if(!empty($sub_items)) 
+<li class="{{ $attributes->class('nav-item')->get('class') }}">
+    <a href="{{ $url ?? '#' }}" class="nav-link {{ $active ? 'active' : '' }}">
+        @if ($icon)
+            <i class="nav-icon {{ $icon }}"></i>
+            <p>{{ $label }} 
+                @if(!empty($items))
+                    <i class="fas fa-angle-left right"></i>
+                @endif
+            </p>
+        @endif
+    </a>
+    
+    @if(!empty($items)) 
         <ul class="nav nav-treeview">
-            @foreach ($sub_items as $sub_item)
-                <x-admin::navigation :item="$sub_item" />
+            @foreach ($items as $sub_item)
+                {{ $sub_item }}
             @endforeach
         </ul>
     @endif

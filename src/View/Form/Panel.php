@@ -3,7 +3,7 @@
 namespace OneBiznet\Admin\View\Form;
 
 use Illuminate\View\ComponentAttributeBag;
-use OneBiznet\Admin\View\Form\Traits\Collapsible;
+use OneBiznet\Admin\View\Traits\Collapsible;
 
 class Panel extends Container
 {

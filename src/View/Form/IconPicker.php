@@ -4,8 +4,8 @@ namespace OneBiznet\Admin\View\Form;
 
 use Butschster\Head\Facades\Meta;
 use Illuminate\View\ComponentAttributeBag;
-use OneBiznet\Admin\View\Form\Traits\HasLabel;
-use OneBiznet\Admin\View\Form\Traits\HasColor;
+use OneBiznet\Admin\View\Traits\HasLabel;
+use OneBiznet\Admin\View\Traits\HasColor;
 
 class IconPicker extends Field
 {

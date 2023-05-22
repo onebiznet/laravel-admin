@@ -4,7 +4,7 @@ namespace OneBiznet\Admin\View\Form;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
-use OneBiznet\Admin\View\Form\Traits\HasColor;
+use OneBiznet\Admin\View\Traits\HasColor;
 
 class Tabs extends Container
 {

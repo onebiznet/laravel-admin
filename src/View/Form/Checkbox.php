@@ -2,9 +2,9 @@
 
 namespace OneBiznet\Admin\View\Form;
 
-use OneBiznet\Admin\View\Form\Traits\HasCaption;
-use OneBiznet\Admin\View\Form\Traits\HasColor;
-use OneBiznet\Admin\View\Form\Traits\Togglable;
+use OneBiznet\Admin\View\Traits\HasCaption;
+use OneBiznet\Admin\View\Traits\HasColor;
+use OneBiznet\Admin\View\Traits\Togglable;
 
 class Checkbox extends Field
 {

@@ -4,7 +4,7 @@ namespace OneBiznet\Admin\View\Form;
 
 use Butschster\Head\Facades\Meta;
 use Illuminate\View\ComponentSlot;
-use OneBiznet\Admin\View\Form\Traits\HasPlaceholder;
+use OneBiznet\Admin\View\Traits\HasPlaceholder;
 
 class TomSelect extends Select
 {

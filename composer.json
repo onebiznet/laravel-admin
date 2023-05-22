@@ -1,8 +1,23 @@
 {
     "name": "onebiznet/laravel-admin",
-    "autoload": {    
+    "description": "Laravel Admin Panel",
+    "require": {
+        "spatie/laravel-package-tools": "^1.15",
+        "spatie/laravel-medialibrary": "^10.9",
+        "php": "^8.2",
+        "illuminate/support": "^10.11",
+        "illuminate/view": "^10.11",
+        "laravel/fortify": "^1.17",
+        "spatie/laravel-permission": "^5.10",
+        "rappasoft/laravel-livewire-tables": "^2.14",
+        "livewire/livewire": "^2.12",
+        "butschster/meta-tags": "^2.3",
+        "yoeunes/toastr": "^2.3"
+    },
+    "license": "MIT",
+    "autoload": {
         "psr-4": {
-            "OneBiznet\\Admin\\": "src/"
+            "Onebiznet\\LaravelAdmin\\": "src/"
         }
     },
     "authors": [
@@ -10,20 +25,5 @@
             "name": "drhtoo",
             "email": "drpyaesonehtoo@gmail.com"
         }
-    ],
-    "require": {
-        "php": "^7.3|^8.0",
-        "illuminate/support": "^8.6|^9.0|^10.0",
-        "illuminate/view": "^8.6|^9.0|^10.0",
-        "spatie/laravel-medialibrary": "^8.0",
-        "butschster/meta-tags": "^2.0"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "OneBiznet\\Admin\\AdminServiceProvider"
-            ]
-        }
-    },
-    "minimum-stability": "dev"
+    ]
 }

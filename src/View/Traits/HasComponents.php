@@ -1,9 +1,8 @@
 <?php 
 
-namespace OneBiznet\Admin\View\Form\Traits;
+namespace OneBiznet\Admin\View\Traits;
 
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Collection;
 
 trait HasComponents
 {

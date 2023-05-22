@@ -3,7 +3,7 @@
 namespace OneBiznet\Admin\View\Form;
 
 use Illuminate\View\ComponentAttributeBag;
-use OneBiznet\Admin\View\Form\Traits\HasPlaceholder;
+use OneBiznet\Admin\View\Traits\HasPlaceholder;
 
 class TextInput extends Field
 {

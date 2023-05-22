@@ -55,6 +55,8 @@ class AdminServiceProvider extends ServiceProvider
 
         $this->loadTranslationsFrom(__DIR__ . '/../lang', 'admin');
 
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');        
+
         $this->registerMetaTags();
 
         $this->registerLivewireComponents();
@@ -280,10 +282,12 @@ class AdminServiceProvider extends ServiceProvider
         Livewire::component('data-table', \OneBiznet\Admin\Livewire\DataTables\DataTable::class);
         Livewire::component('user-table', \OneBiznet\Admin\Livewire\DataTables\UserDataTable::class);
         Livewire::component('role-table', \OneBiznet\Admin\Livewire\DataTables\RoleDataTable::class);
+        Livewire::component('permission-table', \OneBiznet\Admin\Livewire\DataTables\PermissionDataTable::class);
 
         Livewire::component('form', \OneBiznet\Admin\Livewire\Form::class);
         Livewire::component('user-form', \OneBiznet\Admin\Livewire\Forms\UserForm::class);
         Livewire::component('role-form', \OneBiznet\Admin\Livewire\Forms\RoleForm::class);
+        Livewire::component('permission-form', \OneBiznet\Admin\Livewire\Forms\PermissionForm::class);
 
         Livewire::component('gallery', \OneBiznet\Admin\Livewire\Gallery::class);
     }

@@ -3,27 +3,25 @@
 namespace OneBiznet\Admin\View\Navigation;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\View\ComponentAttributeBag;
+use OneBiznet\Admin\View\Traits\Collapsible;
 
 class NavigationGroup extends NavigationItem 
 {
-    protected bool $isCollapsed = true;
-
-    protected ?bool $isCollapsible = null;
-
+    use Collapsible;
+    
     protected array | Arrayable $items = [];
+
+    public function __construct(?string $name = null)
+    {
+        parent::__construct($name);
+
+        $this->isCollapsed = true;
+    }
 
     public function collapsed(bool $condition = true): static
     {
         $this->isCollapsed = $condition;
-
-        $this->collapsible();
-
-        return $this;
-    }
-
-    public function collapsible(?bool $condition = true): static
-    {
-        $this->isCollapsible = $condition;
 
         return $this;
     }
@@ -45,11 +43,6 @@ class NavigationGroup extends NavigationItem
         return (!$this->isChildActive()) && $this->isCollapsed;
     }
 
-    public function isCollapsible(): bool
-    {
-        return $this->isCollapsible ?? config('admin-panel.layout.sidebar.groups.are_collapsible') ?? true;
-    }
-
     public function isChildActive() : bool 
     {
         foreach($this->items as $item) {
@@ -58,5 +51,16 @@ class NavigationGroup extends NavigationItem
         }
 
         return false;
+    }
+
+    public function getAttributes(): ComponentAttributeBag
+    {
+        $attributes = parent::getAttributes();
+
+        $attributes = $attributes->merge([
+            'class' => ($this->isCollapsed() ? '' : ' menu-open')
+        ]);
+
+        return $attributes;
     }    
 }

@@ -11,7 +11,7 @@ use OneBiznet\Admin\View\Form\Container;
 use OneBiznet\Admin\View\Form\Field;
 use OneBiznet\Admin\View\Form\MediaField;
 use OneBiznet\Admin\View\Form\TextInput;
-use OneBiznet\Admin\View\Form\Traits\HasComponents;
+use OneBiznet\Admin\View\Traits\HasComponents;
 
 class Form extends Component
 {
@@ -98,7 +98,7 @@ class Form extends Component
         foreach ($this->getFields($this->form_components) as $field) {
             $rules[$field->getName()] = $field->getRules();
         }
-        
+
         return $rules;
     }
 
@@ -126,11 +126,12 @@ class Form extends Component
             }
         }
 
-        toastr()->success('Data saved successfully.', 'Saved');        
+        toastr()->success('Data saved successfully.', 'Saved');
     }
 
     public function render()
     {
-        return view('admin::livewire.form', ['components' => $this->form_components]);
+        return view('admin::livewire.form', ['components' => $this->form_components])
+            ->layout('admin-layout');
     }
 }

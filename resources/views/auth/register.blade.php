@@ -109,7 +109,7 @@
                 <div class="uk-margin-small">
                     <div class="uk-inline uk-width-1-1">
                         <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: receiver"></span>
-                        <x-phone-input class="uk-input uk-border-pill" name="phone" value="{{ old('phone') }}"/>
+                        <x-admin::form.phone-input class="uk-input uk-border-pill" name="phone" value="{{ old('phone') }}"/>
                         {{-- <input type="text" class="uk-input uk-border-pill" name="phone"
                             placeholder="{{ __('Mobile number') }}" value="{{ old('phone') }}"> --}}
                     </div>
@@ -143,65 +143,6 @@
                     @enderror
                 </div>
 
-            </fieldset>
-
-            <fieldset class="uk-fieldset">
-                <div class="uk-margin-small">
-                    <label for="register_business">
-                        <input type="checkbox" class="uk-checkbox" name="register_business" id="register_business" value="yes"
-                            @if (old('register_business')) checked @endif
-                            uk-toggle="target: #register_business; animation: slide-down-small">
-                        {{ __('I want to register my business.') }}
-                    </label>
-                </div>
-            </fieldset>
-
-            <fieldset class="uk-fieldset" id="register_business" @if (!old('register_business')) hidden @endif>
-                <div class="uk-margin-small">
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: cart"></span>
-                        <select class="uk-select uk-border-pill" name="business_type"
-                            placeholder="{{ __('Your Business Name') }}">
-                            <option value="">{{ __('Select business type...') }}</option>
-                            <option value="shop" @if (old('business_type') === 'shop') selected @endif>
-                                {{ __('Shop') }}</option>
-                            <option value="service" @if (old('business_type') === 'service') selected @endif>
-                                {{ __('Service') }}</option>
-                            <option value="express" @if (old('business_type') === 'express') selected @endif>
-                                {{ __('Delivery') }}</option>
-                            <option value="education" @if (old('business_type') === 'education') selected @endif>
-                                {{ __('Education') }}</option>
-                        </select>
-                        @error('business_type')
-                            <small class="uk-text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="uk-margin-small">
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: world"></span>
-                        <input type="text" class="uk-input uk-border-pill" name="business_name"
-                            placeholder="{{ __('Your Business Name') }}" value="{{ old('business_name') }}">
-                        @error('business_name')
-                            <small class="uk-text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="uk-margin-small" x-data="{ slug: '{{ old('domain') }}' }">
-                    <div class="uk-inline uk-width-1-1">
-                        <span class="uk-form-icon uk-form-icon-flip" data-uk-icon="icon: link"></span>
-                        <input type="text" class="uk-input uk-border-pill" x-model="slug" name="domain"
-                            placeholder="{{ __('Business subdomain') }}" value="{{ old('domain') }}">
-                    </div>
-                    <small class="uk-text-muted uk-flex">https://<span x-text="slug" x-show="slug"
-                            class="uk-text-emphasis"></span><span class="uk-text-emphasis"
-                            x-show="!slug">[your-domain]</span>/shop.test/</small>
-                    @error('domain')
-                        <small class="uk-text-danger">{{ $message }}</small>
-                    @enderror
-                </div>
             </fieldset>
 
             <div class="uk-margin-small">

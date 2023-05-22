@@ -2,8 +2,8 @@
 
 namespace OneBiznet\Admin\View\Form;
 
-use OneBiznet\Admin\View\Form\Traits\HasOptions;
-use OneBiznet\Admin\View\Form\Traits\HasRelationship;
+use OneBiznet\Admin\View\Traits\HasOptions;
+use OneBiznet\Admin\View\Traits\HasRelationship;
 
 class Select extends Field
 {

@@ -3,10 +3,10 @@
 namespace OneBiznet\Admin\View\Form;
 
 use Illuminate\View\ComponentAttributeBag;
-use OneBiznet\Admin\View\Form\Traits\HasLabel;
-use OneBiznet\Admin\View\Form\Traits\HasModel;
-use OneBiznet\Admin\View\Form\Traits\HasRules;
-use OneBiznet\Admin\View\Form\Traits\Wirable;
+use OneBiznet\Admin\View\Traits\HasLabel;
+use OneBiznet\Admin\View\Traits\HasModel;
+use OneBiznet\Admin\View\Traits\HasRules;
+use OneBiznet\Admin\View\Traits\Wirable;
 
 class Field extends Component
 {

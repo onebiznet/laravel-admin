@@ -1,6 +1,6 @@
 <?php 
 
-namespace OneBiznet\Admin\View\Form\Traits;
+namespace OneBiznet\Admin\View\Traits;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;

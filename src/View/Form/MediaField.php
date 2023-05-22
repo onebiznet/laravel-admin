@@ -5,7 +5,7 @@ namespace OneBiznet\Admin\View\Form;
 use Butschster\Head\Facades\Meta;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\View\ComponentAttributeBag;
-use OneBiznet\Admin\View\Form\Traits\HasRelationship;
+use OneBiznet\Admin\View\Traits\HasRelationship;
 
 class MediaField extends Field
 {

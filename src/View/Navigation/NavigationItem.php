@@ -3,16 +3,21 @@
 namespace OneBiznet\Admin\View\Navigation;
 
 use Closure;
+use Illuminate\Contracts\Support\Htmlable;
+use OneBiznet\Admin\View\Component;
+use OneBiznet\Admin\View\Traits\HasLabel;
 
-class NavigationItem
+class NavigationItem extends Component implements Htmlable
 {
+    use HasLabel;
+
+    protected string $view = 'admin::components.navigation';
+
     protected ?string $group = null;
 
     protected ?Closure $isActiveWhen = null;
 
     protected ?string $icon = null;
-
-    protected ?string $label = null;
 
     protected ?string $badge = null;
 
@@ -20,16 +25,18 @@ class NavigationItem
 
     protected ?int $sort = null;
 
-    final public function __construct(?string $label = null)
-    {
-        if (filled($label)) {
-            $this->label($label);
+    public function __construct(?string $name = null)
+    {        
+        if (filled($name)) {
+            $this->label($name);
+            $this->name($name);
         }
     }
 
-    public static function make(?string $label = null): static
+    public static function make(?string $name = null): static
     {
-        return app(get_called_class(), ['label' => $label]);
+        return new static ($name);
+        //return app(get_called_class(), ['label' => $label]);
     }
 
     public function badge(?string $badge, ?string $color = null): static
@@ -61,13 +68,6 @@ class NavigationItem
         return $this;
     }
 
-    public function label(string $label): static
-    {
-        $this->label = $label;
-
-        return $this;
-    }
-
     public function sort(?int $sort): static
     {
         $this->sort = $sort;
@@ -95,11 +95,6 @@ class NavigationItem
         return $this->icon;
     }
 
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
     public function getSort(): int
     {
         return $this->sort ?? -1;
@@ -114,5 +109,15 @@ class NavigationItem
         }
 
         return app()->call($callback);
+    }
+
+    public function getActive(): bool 
+    {
+        return $this->isActive();
+    }
+
+    public function toHtml()
+    {
+        return $this->render();
     }
 }

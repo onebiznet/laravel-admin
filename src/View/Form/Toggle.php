@@ -2,8 +2,8 @@
 
 namespace OneBiznet\Admin\View\Form;
 
-use OneBiznet\Admin\View\Form\Traits\ToggleHelpers;
-use OneBiznet\Admin\View\Form\Traits\HasColor;
+use OneBiznet\Admin\View\Traits\ToggleHelpers;
+use OneBiznet\Admin\View\Traits\HasColor;
 
 class Toggle extends Checkbox
 {

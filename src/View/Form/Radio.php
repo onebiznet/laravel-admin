@@ -2,7 +2,7 @@
 
 namespace OneBiznet\Admin\View\Form;
 
-use OneBiznet\Admin\View\Form\Traits\HasOptions;
+use OneBiznet\Admin\View\Traits\HasOptions;
 
 class Radio extends Checkbox
 {

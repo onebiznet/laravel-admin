@@ -3,7 +3,7 @@
 namespace OneBiznet\Admin\View\Form;
 
 use Illuminate\View\ComponentSlot;
-use OneBiznet\Admin\View\Form\Traits\HasComponents;
+use OneBiznet\Admin\View\Traits\HasComponents;
 
 abstract class Container extends Component
 {

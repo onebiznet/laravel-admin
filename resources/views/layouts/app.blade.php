@@ -162,7 +162,7 @@
                 <img src="{{ Admin::logoUrl() }}" alt="Application Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
                 <span
-                    class="brand-text font-weight-light">{{ Larapress::settings('site_name', config('app.name')) }}</span>
+                    class="brand-text font-weight-light">{{ config('app.name') }}</span>
             </a>
 
             <!-- Sidebar -->
@@ -197,7 +197,8 @@
                         data-accordion="false">
 
                         @foreach (Admin::navigationItems() as $item)
-                            <x-admin::navigation :item="$item" />
+                            {{ $item }}
+                            {{-- <x-admin::navigation :item="$item" /> --}}
                         @endforeach
 
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->

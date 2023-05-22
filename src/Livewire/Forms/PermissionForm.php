@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace OneBiznet\Admin\Livewire\Forms;
 
@@ -6,18 +6,18 @@ use OneBiznet\Admin\Livewire\Form;
 use OneBiznet\Admin\View\Form\Checklist;
 use OneBiznet\Admin\View\Form\TextInput;
 
-class RoleForm extends Form
+class PermissionForm extends Form
 {
-    protected function schema()
+    protected function schema() 
     {
         return [
             TextInput::make('name')
-                ->rules('required|string|unique:roles,name,' . $this->model->getKey()),
+                ->rules('required|string|unique:roles,name,'.$this->model->getKey()),
             TextInput::make('guard_name')
                 ->rules('nullable|string|max:255'),
-            Checklist::make('permissions')
+            Checklist::make('roles')
                 ->switch()
-                ->relationship('permissions.name'),
+                ->relationship('roles.name'),
         ];
     }
 }
