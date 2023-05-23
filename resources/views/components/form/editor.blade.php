@@ -6,8 +6,30 @@
         $attribute->get('value') @endif
         }" x-init="() => {
             const editor = tinymce.init({
+                branding: false,
                 target: $refs.editor,
-                branding: false
+                external_plugins: {
+                    pluginId: '{{ asset('vendor/admin/js/tinymce-plugins.js') }}'
+                },
+                plugins: [
+                    'advlist',
+                    'autolink',
+                    'lists',
+                    'link',
+                    'image',
+                    'media',
+                    'table',
+                    'gallery'
+                ],
+                toolbar: 'blocks bold italic backcolor | ' +
+                    'alignleft aligncenter alignright alignjustify | ' +
+                    'bullist numlist outdent indent | ' +
+                    'gallery',
+                setup: function(editor) {
+                    editor.on('change', function() {
+                        content[lang.locale] = editor.getContent();
+                    });
+                }
             });
         }" wire:ignore>
             <textarea x-ref="editor" x-text="content"></textarea>

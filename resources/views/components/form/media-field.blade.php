@@ -22,24 +22,26 @@
 
     createPreview(images);
 
-    $($refs.sortable).on('click', '.gallery-item .delete-item', function(e) {
+    $($refs.gallery).on('click', '.gallery-item .delete-item', function(e) {
         e.preventDefault();
         var index = $(this).closest('li').data('index');
         images.splice(index, 1);
     });
 
-    $($refs.sortable).sortable({
-        container: 'ul',
-        node: 'li.gallery-item',
-        scroll: true,
-        handle: 'img',
-        autocreate: false,
-        update: function(e) {
-            images = this.sortable('serialize').map(sorted => {
-                return JSON.parse(JSON.stringify(images.find(({ id }) => id == parseInt(sorted.id))));
-            });
-        }
-    });
+    @if ($attributes->has('multiple')) 
+        $($refs.gallery).sortable({
+            container: 'ul',
+            node: 'li.gallery-item',
+            scroll: true,
+            handle: 'img',
+            autocreate: false,
+            update: function(e) {
+                images = this.sortable('serialize').map(sorted => {
+                    return JSON.parse(JSON.stringify(images.find(({ id }) => id == parseInt(sorted.id))));
+                });
+            }
+        });
+    @endif
 
     $watch('images', images => {
         createPreview(images)
@@ -85,7 +87,7 @@
                 </div>
             </li>
         </script>
-        <ul class="row row-eq-height list-unstyled m-0" id="{{ $attributes->get('id') }}" x-ref="sortable">
+        <ul class="row row-eq-height list-unstyled m-0" id="{{ $attributes->get('id') }}" x-ref="gallery">
         </ul>
 
         <div class="col-6 col-sm-4 col-md-3 mb-3" x-show.important="images.length == 0 || multiple" id="add_media"

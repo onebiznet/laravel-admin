@@ -28,7 +28,7 @@ class MediaField extends Field
 
     public function render()
     {
-        if ($this->attributes->has('multiple')) {
+        if ($this->getAttributes()->has('multiple')) {
             Meta::includePackages('alpinejs', 'draganddrop');
         }
 

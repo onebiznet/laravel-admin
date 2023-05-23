@@ -33,6 +33,11 @@ class NavigationGroup extends NavigationItem
         return $this;
     }
 
+    public function add(NavigationItem ...$items): static 
+    {
+        return $this->items(array_merge($this->getItems(), $items));
+    }
+
     public function getItems(): array | Arrayable
     {
         return $this->items;
@@ -51,6 +56,11 @@ class NavigationGroup extends NavigationItem
         }
 
         return false;
+    }
+
+    public function getActive(): bool 
+    {
+        return $this->isActive() || $this->isChildActive();
     }
 
     public function getAttributes(): ComponentAttributeBag

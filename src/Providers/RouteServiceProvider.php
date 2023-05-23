@@ -30,9 +30,6 @@ class RouteServiceProvider extends ServiceProvider
 
     private function routeConfig()
     {
-        return [
-            'prefix' => config('admin.route.prefix'),
-            'middleware' => config('admin.route.middleware'),
-        ];
+        return config('admin.route');
     }
 }
