@@ -29,7 +29,8 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('username');
             $table->dropColumn('phone');
-            $table->string('email')->nullable(false)->change();
+            //$table->delete()
+            // $table->string('email')->nullable(false)->change();
         });
     }
 };

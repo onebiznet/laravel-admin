@@ -4,6 +4,8 @@ namespace OneBiznet\Admin\Livewire;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
 use Livewire\Component;
 use OneBiznet\Admin\Models\Media;
@@ -110,7 +112,8 @@ class Form extends Component
 
         foreach ($this->relationships as $relation => $values) {
             $relationship = $this->model->{$relation}();
-            if ($relationship->getRelated() instanceof Media) {
+            $relatedModel = $relationship->getRelated();
+            if ($relatedModel instanceof Media) {
                 $mediaArray = Arr::flatten($values, 1);
                 $pivotArray = collect($mediaArray)->mapWithKeys(function ($media, $index) {
                     return [$media['id'] => [
@@ -120,8 +123,14 @@ class Form extends Component
                 $this->model->{$relation}()->sync($pivotArray);
             } else {
                 $values = Arr::flatten($values);
-                if (get_class($relationship) == BelongsToMany::class) {
-                    $this->model->{$relation}()->sync($values);
+                switch (get_class($relationship)) {
+                    case BelongsToMany::class:
+                    case MorphToMany::class:
+                        $this->model->{$relation}()->sync($values);
+                        break;
+
+                    case HasMany::class:
+                        $this->model->{$relation}()->saveMany($relatedModel::find($values));
                 }
             }
         }

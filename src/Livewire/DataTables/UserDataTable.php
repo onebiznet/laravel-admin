@@ -20,7 +20,7 @@ class UserDataTable extends DataTable
             Column::make('Email Address', 'email'),
             Column::make('Phone Number', 'phone'),
             Column::make('Roles')
-                ->label(fn ($row) => implode(', ', $row->roles->pluck('name')->all())),
+                ->label(fn ($row) => implode(', ', $row->roles ? $row->roles->pluck('name')->all() : [])),
             ButtonGroupColumn::make('Actions')
                 ->attributes(fn () => ['class' => 'btn-group'])
                 ->buttons([

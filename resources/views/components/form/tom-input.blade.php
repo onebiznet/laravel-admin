@@ -8,7 +8,7 @@
                 items: data,
                 create: {{ $attributes->get('data-create') ?? 'true' }},
                 onChange: function(value) {
-                    data = value;
+                    data = value.split(',');
                 },
             });
         }" x-cloak>

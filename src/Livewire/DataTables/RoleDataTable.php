@@ -11,13 +11,17 @@ class RoleDataTable extends DataTable
 {
     protected $model = \Spatie\Permission\Models\Role::class;
 
-    public function columns() : array
+    public function columns(): array
     {
         return [
             Column::make('Id')
                 ->hideIf(true),
             Column::make('Name'),
             Column::make('Guard Name'),
+            Column::make('Permissions')
+                ->label(fn ($row) => implode(', ', $row->permissions ? $row->permissions->pluck('name')->all() : [])),
+            Column::make('Users')
+                ->label(fn ($row) => implode(', ', $row->users ? $row->users->pluck('name')->all() : [])),
             ButtonGroupColumn::make('Actions')
                 ->buttons([
                     ButtonColumn::make('Edit')

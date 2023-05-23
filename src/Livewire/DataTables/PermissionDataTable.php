@@ -18,11 +18,13 @@ class PermissionDataTable extends DataTable
                 ->hideIf(true),
             Column::make('Name'),
             Column::make('Guard Name'),
+            Column::make('Roles')
+                ->label(fn ($row) => implode(', ', $row->roles ? $row->roles->pluck('name')->all() : [])),
             ButtonGroupColumn::make('Actions')
                 ->buttons([
                     ButtonColumn::make('Edit')
                         ->icon('fas fa-pencil')
-                        ->location(fn ($row) => route('admin.roles.edit', ['row' => $row]))
+                        ->location(fn ($row) => route('admin.permissions.edit', ['row' => $row]))
                         ->color('primary'),
                     ButtonColumn::make('Delete')
                         ->icon('fas fa-trash')

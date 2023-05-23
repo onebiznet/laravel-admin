@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use OneBiznet\Admin\Controllers\PermissionController;
 use OneBiznet\Admin\Controllers\RoleController;
 use OneBiznet\Admin\Controllers\UserController;
+use OneBiznet\Admin\Livewire\Forms\UserForm;
 
 Route::name('admin.')->group(function () {
     Route::get('/', function () {
