@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "OneBiznet\\LaravelAdmin\\AdminServiceProvider"
+                "OneBiznet\\Admin\\AdminServiceProvider"
             ]
         }
     }    
