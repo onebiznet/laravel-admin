@@ -2,15 +2,15 @@
     <a href="{{ $url ?? '#' }}" class="nav-link {{ $active ? 'active' : '' }}">
         @if ($icon)
             <i class="nav-icon {{ $icon }}"></i>
-            <p>{{ $label }} 
-                @if(!empty($items))
-                    <i class="fas fa-angle-left right"></i>
-                @endif
-            </p>
         @endif
+        <p>{{ $label }}
+            @if (!empty($items))
+                <i class="fas fa-angle-left right"></i>
+            @endif
+        </p>
     </a>
-    
-    @if(!empty($items)) 
+
+    @if (!empty($items))
         <ul class="nav nav-treeview">
             @foreach ($items as $sub_item)
                 {{ $sub_item }}
