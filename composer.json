@@ -24,5 +24,12 @@
             "name": "drhtoo",
             "email": "drpyaesonehtoo@gmail.com"
         }
-    ]
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OneBiznet\\LaravelAdmin\\AdminServiceProvider"
+            ]
+        }
+    }    
 }
