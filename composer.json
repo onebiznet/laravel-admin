@@ -25,6 +25,11 @@
             "email": "drpyaesonehtoo@gmail.com"
         }
     ],
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=admin-assets --ansi --force"
+        ]
+    },    
     "extra": {
         "laravel": {
             "providers": [
