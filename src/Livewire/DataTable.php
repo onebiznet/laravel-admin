@@ -90,4 +90,9 @@ class DataTable extends DataTableComponent
 
         return $columns;
     }
+
+    public function delete(mixed $id)
+    {
+        $this->model::destroy($id);
+    }
 }

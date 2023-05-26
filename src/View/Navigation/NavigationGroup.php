@@ -3,6 +3,7 @@
 namespace OneBiznet\Admin\View\Navigation;
 
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Support\Collection;
 use Illuminate\View\ComponentAttributeBag;
 use OneBiznet\Admin\View\Traits\Collapsible;
 
@@ -35,12 +36,12 @@ class NavigationGroup extends NavigationItem
 
     public function add(NavigationItem ...$items): static 
     {
-        return $this->items(array_merge($this->getItems(), $items));
+        return $this->items(array_merge($this->items, $items));
     }
 
-    public function getItems(): array | Arrayable
+    public function getItems(): Collection
     {
-        return $this->items;
+        return collect($this->items);
     }
 
     public function isCollapsed(): bool

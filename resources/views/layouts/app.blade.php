@@ -9,7 +9,6 @@
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
-    @if (request()->route('business')) {{dd(request()->route('business'))}} @endif
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->

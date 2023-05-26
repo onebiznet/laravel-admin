@@ -51,20 +51,9 @@ class NavigationBuilder
 
     public function getNavigation(): Collection
     {
-        $navigation = collect();
-
         $items = $this->items;
 
         return collect($items);
 
-        if (count($items)) {
-            $navigation->push(
-                NavigationGroup::make()
-                    ->items($items)
-                    ->collapsed(false),
-            );
-        }
-        return $navigation 
-            ->merge($this->groups);
     }
 }

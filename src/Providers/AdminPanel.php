@@ -28,12 +28,15 @@ class AdminPanel
                 return $builder->items([
                     NavigationLink::make('Dashboard')
                         ->icon('fas fa-home')
-                        ->route('admin.home'),
+                        ->route('admin.home')
+                        ->sort(0),
                     NavigationLink::make('Settings')
                         ->icon('fas fa-cog')
+                        ->sort(10)
                         ->url('/'),
                     NavigationGroup::make('Users')
                         ->icon('fas fa-user')
+                        ->sort(3)
                         ->items([
                             NavigationLink::make('All Users')
                                 ->icon('fas fa-users')

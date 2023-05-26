@@ -3,6 +3,7 @@
 namespace OneBiznet\Admin\View\Form;
 
 use Illuminate\View\ComponentAttributeBag;
+use OneBiznet\Admin\View\Component;
 use OneBiznet\Admin\View\Traits\HasLabel;
 use OneBiznet\Admin\View\Traits\HasModel;
 use OneBiznet\Admin\View\Traits\HasRules;
