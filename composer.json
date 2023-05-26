@@ -16,7 +16,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Onebiznet\\LaravelAdmin\\": "src/"
+            "Onebiznet\\Admin\\": "src/"
         }
     },
     "authors": [
