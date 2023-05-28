@@ -274,6 +274,16 @@ class AdminServiceProvider extends ServiceProvider
             );
         });
 
+        PackageManager::create('toastr', function (Package $package) {
+            $package->addStyle(
+                'toastr.css',
+                '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css'
+            )->addScript(
+                'toastr.js',
+                '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js',  
+            );
+        });
+
 
     }
 

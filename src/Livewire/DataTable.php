@@ -51,9 +51,7 @@ class DataTable extends DataTableComponent
     public function configure(): void
     {
         $this->setPrimaryKey($this->primaryKey ?? 'id')
-            ->setAdditionalSelects([
-                $this->modelInstance->getTable() . '.' . $this->primaryKey . ' as ' . $this->primaryKey
-                ])
+            ->setAdditionalSelects('*')
             ->setComponentWrapperAttributes([
                 'class' => 'card card-body',
             ]);

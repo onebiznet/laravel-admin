@@ -15,7 +15,7 @@ tinymce.PluginManager.add('gallery', (editor, url) => {
                 },
                 {
                     type: 'choiceitem',
-                    icon: 'media',
+                    icon: 'embed',
                     text: 'Insert Media',
                     value: 'mceMedia'
                 }

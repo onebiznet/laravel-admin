@@ -9,7 +9,7 @@
                 branding: false,
                 target: $refs.editor,
                 external_plugins: {
-                    pluginId: '{{ asset('vendor/admin/js/tinymce-plugins.js') }}'
+                    pluginId: '{{ function_exists('global_asset') ? global_asset('vendor/admin/js/tinymce-plugins.js') : asset('vendor/admin/js/tinymce-plugins.js')}}'
                 },
                 plugins: [
                     'advlist',
@@ -27,7 +27,7 @@
                     'gallery',
                 setup: function(editor) {
                     editor.on('change', function() {
-                        content[lang.locale] = editor.getContent();
+                        content = editor.getContent();
                     });
                 }
             });

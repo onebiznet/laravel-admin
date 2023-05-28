@@ -47,11 +47,11 @@ class AdminPanel
                             NavigationLink::make('Roles')
                                 ->icon('fas fa-user-tag')
                                 ->url(route('admin.roles.index'))
-                                ->isActiveWhen(fn() => Route::is('admin.roles.*')),
+                                ->isActiveWhen(fn () => Route::is('admin.roles.*')),
                             NavigationLink::make('Permissions')
                                 ->icon('fas fa-user-check')
                                 ->url(route('admin.permissions.index'))
-                                ->isActiveWhen(fn() => Route::is('admin.permissions.*')),
+                                ->isActiveWhen(fn () => Route::is('admin.permissions.*')),
                         ])
                 ]);
             });
@@ -69,6 +69,8 @@ class AdminPanel
 
     public function logoUrl()
     {
-        return asset('vendor/admin/img/AdminLTELogo.png');
+        return function_exists('global_asset')
+            ? global_asset('vendor/admin/img/AdminLTELogo.png')
+            : asset('vendor/admin/img/AdminLTELogo.png');
     }
 }
