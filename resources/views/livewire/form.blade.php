@@ -4,6 +4,8 @@
             @foreach ($components as $component)
                 {!! $component->render() !!}
             @endforeach
+            
+            {{ $slot }}
         </div>
 
         <div class="fixed-bottom form-actions px-4 py-2 border-top d-flex justify-content-end" style="background: #fafafa">
@@ -18,15 +20,14 @@
                             <div class="dropdown-menu">
                         @endif
                     @else
-                        <button type="button" class="dropdown-item"
-                            wire:click.prevent="{{ $action }}">{{ $label }}</button>
+                        <button type="button" class="dropdown-item" wire:click.prevent="{{ $action }}">{{ $label }}</button>
                     @endif
 
                     @if ($loop->last && $loop->count > 1)
-                        </div>
-                    @endif
-                @endforeach
             </div>
+            @endif
+            @endforeach
         </div>
+    </div>
     </div>
 </form>

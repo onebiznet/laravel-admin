@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Support\Arr;
+use Illuminate\View\ComponentSlot;
 use Livewire\Component;
 use OneBiznet\Admin\Models\Media;
 use OneBiznet\Admin\View\Form\Container;
@@ -98,10 +99,15 @@ class Form extends Component
     {
         $rules = [];
         foreach ($this->getFields($this->form_components) as $field) {
-            $rules[$field->getName()] = $field->getRules();
+            $rules = array_merge($rules, $field->getRules());
         }
 
         return $rules;
+    }
+
+    public function getSlot()
+    {
+        return '';
     }
 
     public function save()
@@ -140,7 +146,7 @@ class Form extends Component
 
     public function render()
     {
-        return view('admin::livewire.form', ['components' => $this->form_components])
+        return view('admin::livewire.form', ['components' => $this->form_components, 'slot' => $this->getSlot()])
             ->layout('admin-layout');
     }
 }

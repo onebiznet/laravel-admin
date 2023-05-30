@@ -281,7 +281,7 @@ class AdminServiceProvider extends ServiceProvider
             )->addScript(
                 'toastr.js',
                 '//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js',  
-            );
+            )->requires('jquery');
         });
 
 
